@@ -23,7 +23,7 @@ What is does under the hood?
 ```
 
 ## Pushing to a repo
-```py
+```sh
 Command:
 >> eg push
 
