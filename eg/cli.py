@@ -7,15 +7,21 @@ def cli():
 
 
 @cli.command("push")
-@click.option("--msg", "-m", help="Message", default="Updated using easy-git")
-@click.option("--branch", "-b", help="Branch [main]", default="main")
+@click.option("--msg", "-m", help="Message", default=None)
+@click.option("--branch", "-b", help="Branch to push", default=None)
 def push(msg, branch):
     """Push git repo"""
     subprocess.call(['git', 'add', '.'])
-    commit_content = subprocess.check_output(['git', 'commit', '-m', msg])
-    push_content = subprocess.check_output(['git','push', '-u', 'origin', branch])
 
-    print(str(commit_content))
+    if (msg):
+        commit_content = subprocess.check_output(['git', 'commit', '-m', msg])
+        print(str(commit_content))
+    
+    if branch:
+        push_content = subprocess.check_output(['git','push', '-u', 'origin', branch])
+    else:
+        push_content = subprocess.check_output(['git','push'])
+    
     print(str(push_content))
 
 
