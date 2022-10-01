@@ -15,14 +15,14 @@ def push(msg, branch):
 
     if (msg):
         commit_content = subprocess.check_output(['git', 'commit', '-m', msg])
-        print(str(commit_content))
+        print(commit_content.decode("UTF-8"))
     
     if branch:
         push_content = subprocess.check_output(['git','push', '-u', 'origin', branch])
     else:
         push_content = subprocess.check_output(['git','push'])
     
-    print(str(push_content))
+    print(push_content.decode("UTF-8"))
 
 
 @cli.command("init")
@@ -37,8 +37,8 @@ def init(msg, origin, branch):
     branch_content = subprocess.check_output(['git', 'branch', '-M', branch])
     remote_content = subprocess.check_output(['git', 'remote', 'add', 'origin', origin])
     
-    print(str(init_content))
-    print(str(add_content))
-    print(str(commit_content))
-    print(str(branch_content))
-    print(str(remote_content))
+    print(init_content.decode("UTF-8"))
+    print(add_content.decode("UTF-8"))
+    print(commit_content.decode("UTF-8"))
+    print(branch_content.decode("UTF-8"))
+    print(remote_content.decode("UTF-8"))
