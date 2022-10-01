@@ -9,15 +9,17 @@ def cli():
 
 
 @cli.command("push")
-@click.option("--msg", "-m", help="Message", default=None)
+@click.option("--msg", "-m", help="Commit message")
 @click.option("--branch", "-b", help="Branch to push", default=None)
 def push(msg, branch):
     """Push git repo"""
+    if not msg:
+        return print("[*] Commit message is required")
+    
     subprocess.call(["git", "add", "."])
 
-    if msg:
-        commit_content = subprocess.check_output(["git", "commit", "-m", msg])
-        print(commit_content.decode("UTF-8"))
+    commit_content = subprocess.check_output(["git", "commit", "-m", msg])
+    print(commit_content.decode("UTF-8"))
 
     if branch:
         push_content = subprocess.check_output(["git", "push", "-u", "origin", branch])
@@ -29,7 +31,7 @@ def push(msg, branch):
 
 @cli.command("init")
 @click.option(
-    "--msg", "-m", help="Initial commit message", default="Initialized using easy-git"
+    "--msg", "-m", help="Commit message", default="Initialized using easy-git"
 )
 @click.option("--branch", "-b", help="Branch [main]", default="main")
 @click.option("--origin", "-o", help="Repository url")

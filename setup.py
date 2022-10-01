@@ -7,9 +7,9 @@ here = pathlib.Path(__file__).parent.resolve()
 long_description = (here / "README.md").read_text(encoding="utf-8")
 
 setup(
-    name="eg",
+    name="easy-git",
     version="1.0.0",
-    description="Fast push git repo",  # Optional
+    description="Common git operations made simple",  # Optional
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/shahriyardx/gut",
