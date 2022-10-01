@@ -7,7 +7,7 @@ Command:
 >> eg init
 
 Options:
-  -m, --msg     TEXT    Initial commit message
+  -m, --msg     TEXT    Commit message
   -b, --branch  TEXT    Branch [main]
   -o, --origin  TEXT    Repository url
 
@@ -28,7 +28,7 @@ Command:
 >> eg push
 
 Options:
-  -m, --msg     TEXT  Message
+  -m, --msg     TEXT  Commit message
   -b, --branch  TEXT  Branch to push
 
 Example Usage:
