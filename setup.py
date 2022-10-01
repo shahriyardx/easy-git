@@ -4,10 +4,9 @@ from pathlib import Path
 from setuptools import find_packages, setup
 
 current_directory = Path(__file__).parent.resolve()
-
 long_description = (current_directory / "README.md").read_text(encoding="utf-8")
 
-vpath = current_directory / "eg" / "__init__.py"
+vpath = current_directory / "eg" / "_version.py"
 spec = spec_from_file_location(vpath.name[:-3], vpath)
 mod = module_from_spec(spec)
 spec.loader.exec_module(mod)

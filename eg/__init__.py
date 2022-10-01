@@ -1,8 +1,2 @@
-from collections import namedtuple
-
-from .cli import cli
-
-__version__ = "1.0.0"
-VersionInfo = namedtuple("VersionInfo", "major minor macro release")
-
-version_info = VersionInfo(1, 0, 0, "stable")
+from ._version import __version__, version_info
+from .commands import cli
